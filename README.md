@@ -27,3 +27,11 @@ Projeto em configuracao inicial.
 - Containers:
     - fiap-api
     - fiap-db
+ 
+## 23/06
+- Criação tabela de POST
+- CRUD completo (Post, Get, GetById, Put, Delete)
+- Teste usando Postman
+
+## 24/06
+- CRUD (Search)

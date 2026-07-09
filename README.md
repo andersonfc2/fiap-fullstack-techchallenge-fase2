@@ -35,3 +35,11 @@ Projeto em configuracao inicial.
 
 ## 24/06
 - CRUD (Search)
+
+## 02/06
+ - Testes Automatizados:
+    - GET /health
+
+## 06/06
+ - Workflow Criado
+ - Pipeline básico executado

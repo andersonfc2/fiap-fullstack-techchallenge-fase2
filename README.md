@@ -37,9 +37,16 @@ Projeto em configuracao inicial.
 - CRUD (Search)
 
 ## 02/06
- - Testes Automatizados:
+- Testes Automatizados:
     - GET /health
 
 ## 06/06
- - Workflow Criado
- - Pipeline básico executado
+- Workflow Criado
+- Pipeline básico executado
+
+# 10/06
+- Testes Automatizados:
+    - POST /posts
+    - PUT /posts
+    - DELETE /posts
+- Cobertura mínima de testes verificada

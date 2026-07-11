@@ -53,68 +53,6 @@ describe("Tests post creation", () => {
 });
 
 
-//Atividade ID 26
-//PUT /posts
-
-describe("Tests updating/editing posts through PUT", () => {
-    it("should create an error for having an empty request", async () => {
-        req = {};
-        res = {
-        status: function(responseStatus) {
-            expect(responseStatus).toBe(500);
-            return this; 
-        },
-        json: function(responseString) {
-            expect(responseString).toStrictEqual({ error: 'Erro ao atualizar post.' })
-        }};
-    });
-
-    it("should create an error for attempting to reach a post that doesn't exist", async () => {
-        req = {
-            params: {
-                id: 293489304829038
-            },
-            title: "A",
-            content: "B",
-            author: "C"
-        };
-        res = {
-        status: function(responseStatus) {
-            expect(responseStatus).toBe(404);
-            return this; 
-        },
-        json: function(responseString) {
-            expect(responseString).toStrictEqual({ error: 'Post não encontrado.' })
-        }};
-    });
-
-    it("should mock-update an existing post", async () => {
-        req = {
-            params: {
-                id: 3
-            },
-            title: "Title 3.2",
-            content: "Content 3.2",
-            author: " Wendell 3.2 "
-        };
-        res = {
-        status: function(responseStatus) {
-            expect(responseStatus).toBe(200);
-            return this; 
-        },
-        json: function(responsePost) {
-            expect(responsePost).arrayOf(
-                expect.objectContaining({
-                    title: expect.toBe("Title 3.2"),
-                    content: expect.toBe("Content 3.2"),
-                    author: expect.toBe(" Wendell 3.2 "),
-                })
-            )
-        }};
-    })
-});
-
-
 //Atividade ID 28
 
 //GET /posts
@@ -238,6 +176,118 @@ describe("Tests getting specific posts back from the repository through an id", 
                     author: expect.any(String),
                 })
             )
+        }};
+    })
+});
+
+
+//Atividade ID 26
+//PUT /posts
+
+describe("Tests updating/editing posts through PUT", () => {
+    it("should create an error for having an empty request", async () => {
+        req = {};
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(500);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Erro ao atualizar post.' })
+        }};
+    });
+
+    it("should create an error for attempting to reach a post that doesn't exist", async () => {
+        req = {
+            params: {
+                id: 293489304829038
+            },
+            title: "A",
+            content: "B",
+            author: "C"
+        };
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(404);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Post não encontrado.' })
+        }};
+    });
+
+    it("should mock-update an existing post", async () => {
+        req = {
+            params: {
+                id: 3
+            },
+            title: "Title 3.2",
+            content: "Content 3.2",
+            author: " Wendell 3.2 "
+        };
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(200);
+            return this; 
+        },
+        json: function(responsePost) {
+            expect(responsePost).arrayOf(
+                expect.objectContaining({
+                    title: expect.toBe("Title 3.2"),
+                    content: expect.toBe("Content 3.2"),
+                    author: expect.toBe(" Wendell 3.2 "),
+                })
+            )
+        }};
+    })
+});
+
+
+//Atividade ID 27
+//DELETE /posts
+
+describe("Tests deleting posts through DELETE", () => {
+    it("should create an error for having an empty request", async () => {
+        req = {};
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(500);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Erro ao deletar post.' })
+        }};
+    });
+
+    it("should create an error for attempting to reach a post that doesn't exist", async () => {
+        req = {
+            params: {
+                id: 293489304829038
+            }
+        };
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(404);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Post não encontrado.' })
+        }};
+    });
+
+    it("should mock-delete an existing post", async () => {
+        req = {
+            params: {
+                id: 1
+            }
+        };
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(200);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Post não encontrado.' })
         }};
     })
 });

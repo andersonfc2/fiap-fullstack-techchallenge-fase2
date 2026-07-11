@@ -3,6 +3,7 @@
 
 var req, res, title, content, author;
 
+
 //Atividade ID 25
 //POST /posts
 describe("Tests post creation", () => {
@@ -39,15 +40,79 @@ describe("Tests post creation", () => {
             expect(responseStatus).toBe(201);
             return this; 
         },
-        json: function(responseNewPost) {
-            expect(responseNewPost).toBe({newPost})
+        json: function(responsePost) {
+            expect(responsePost).arrayOf(
+                expect.objectContaining({
+                    title: expect.toBe("Paragraphs"),
+                    content: expect.toBe("A book about words."),
+                    author: expect.toBe("John Doe"),
+                })
+            )
         }};
     })
 });
 
+
 //Atividade ID 26
 //PUT /posts
 
+describe("Tests updating/editing posts through PUT", () => {
+    it("should create an error for having an empty request", async () => {
+        req = {};
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(500);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Erro ao atualizar post.' })
+        }};
+    });
+
+    it("should create an error for attempting to reach a post that doesn't exist", async () => {
+        req = {
+            params: {
+                id: 293489304829038
+            },
+            title: "A",
+            content: "B",
+            author: "C"
+        };
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(404);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Post não encontrado.' })
+        }};
+    });
+
+    it("should mock-update an existing post", async () => {
+        req = {
+            params: {
+                id: 3
+            },
+            title: "Title 3.2",
+            content: "Content 3.2",
+            author: " Wendell 3.2 "
+        };
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(200);
+            return this; 
+        },
+        json: function(responsePost) {
+            expect(responsePost).arrayOf(
+                expect.objectContaining({
+                    title: expect.toBe("Title 3.2"),
+                    content: expect.toBe("Content 3.2"),
+                    author: expect.toBe(" Wendell 3.2 "),
+                })
+            )
+        }};
+    })
+});
 
 
 //Atividade ID 28
@@ -84,6 +149,7 @@ describe("Tests getting posts back from the repository", () => {
         }};
     });
 });
+
 
 //GET BY KEY-WORD /posts
 describe("Tests getting specific posts back from the repository through key words", () => {
@@ -125,6 +191,7 @@ describe("Tests getting specific posts back from the repository through key word
         }};
     })
 });
+
 
 //GET by ID /posts
 describe("Tests getting specific posts back from the repository through an id", () => {

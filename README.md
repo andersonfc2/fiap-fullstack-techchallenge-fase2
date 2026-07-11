@@ -49,4 +49,5 @@ Projeto em configuracao inicial.
     - POST /posts
     - PUT /posts
     - DELETE /posts
+    - GET /posts
 - Cobertura mínima de testes verificada

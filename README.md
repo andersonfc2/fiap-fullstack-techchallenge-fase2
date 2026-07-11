@@ -44,7 +44,7 @@ Projeto em configuracao inicial.
 - Workflow Criado
 - Pipeline básico executado
 
-# 10/06
+## 10/06
 - Testes Automatizados:
     - POST /posts
     - PUT /posts

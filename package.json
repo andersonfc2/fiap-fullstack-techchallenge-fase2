@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/andersonfc2/fiap-fullstack-techchallenge-fase2#readme",
   "dependencies": {
+    "@nestjs/swagger": "^11.4.5",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "pg": "^8.21.0"

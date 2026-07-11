@@ -1,4 +1,4 @@
-//Testa a criacao, edicao e exclusai de posts
+//Testa a criacao, edicao e exclusao de posts
 //Atividades ID 25, 26 e 27
 
 //Atividade ID 25
@@ -36,6 +36,9 @@ describe("Tests post creation", () => {
         status: function(responseStatus) {
             expect(responseStatus).toBe(201);
             return this; 
+        },
+        json: function(responseNewPost){
+            expect(responseNewPost).toBe({newPost})
         }};
     })
 });

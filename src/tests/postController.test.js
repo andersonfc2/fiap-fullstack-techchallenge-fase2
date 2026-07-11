@@ -1,5 +1,5 @@
 //Testa a criacao, edicao e exclusao de posts
-//Atividades ID 25, 26 e 27
+//Atividades ID 25, 26, 27 e 28
 
 var req, res, title, content, author;
 

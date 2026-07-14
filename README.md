@@ -36,18 +36,53 @@ Projeto em configuracao inicial.
 ## 24/06
 - CRUD (Search)
 
-## 02/06
+## 02/07
 - Testes Automatizados:
     - GET /health
 
-## 06/06
+## 06/07
 - Workflow Criado
 - Pipeline básico executado
 
-## 10/06
+## 10/07
 - Testes Automatizados:
     - POST /posts
     - PUT /posts
     - DELETE /posts
     - GET /posts
 - Cobertura mínima de testes verificada
+
+## Instruções
+1. Instalar os programas necessarios (comandos para verificar)
+    * git --version
+    * node -v
+    * npm -v
+    * docker --version
+    * docker compose version
+
+2. Clonar o repositório
+    * git clone https://github.com/andersonfc2/fiap-fullstack-techchallenge-fase2.git
+  
+3.  Entrar na pasta do projeto
+    * cd fiap-fullstack-techchallenge-fase
+
+4. Instalar dependencias
+    *  npm install
+
+5. Verificar o arquivo .env
+    * Dentro do projeto que possui os logins e senhas para acessar o projeto/database
+
+6. Abrir o Docker Desktop
+    * Abrir o Docker Desktop pelo menu iniciar e esperar ficar rodando
+
+7. Subir os containers da API e do PostgreSQL
+    * docker compose up --build
+      
+8. Testar a API viva e a conexao com banco
+    * http://localhost:3000/health
+    * http://localhost:3000/database/health
+      
+9. Conferir containers rodando em outro terminal, verificar os containers:
+    *    docker ps
+      
+10. Alternativa: usar o postman

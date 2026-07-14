@@ -197,10 +197,41 @@ describe("Tests updating/editing posts through PUT", () => {
         }};
     });
 
+    it("should create an error for having a request with a parameter that doesn't exist", async () => {
+        req = {test: 'test string'};
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(500);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Erro ao atualizar post.' })
+        }};
+    });
+
     it("should create an error for attempting to reach a post that doesn't exist", async () => {
         req = {
             params: {
                 id: 293489304829038
+            },
+            title: "A",
+            content: "B",
+            author: "C"
+        };
+        res = {
+        status: function(responseStatus) {
+            expect(responseStatus).toBe(404);
+            return this; 
+        },
+        json: function(responseString) {
+            expect(responseString).toStrictEqual({ error: 'Post não encontrado.' })
+        }};
+    });
+
+    it("should create an error for attempting to reach a post with a string id", async () => {
+        req = {
+            params: {
+                id: '0123'
             },
             title: "A",
             content: "B",

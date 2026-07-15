@@ -12,7 +12,7 @@ test('Should obtain a confirmation status from a GET to the health route', () =>
             expect(responseStatus).toBe(200);
             return this; 
         },
-        json: function(responseString){
+        json: function(responseString) {
             expect(responseString).toStrictEqual({"message": "API funcionando corretamente", "status":"ok"})
         }
     };

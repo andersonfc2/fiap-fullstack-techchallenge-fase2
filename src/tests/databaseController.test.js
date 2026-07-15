@@ -33,7 +33,7 @@ describe("Tests the database connection", () => {
     });
 
     it("should verify the connection with the database and return all rows", async () => {
-        req = {};
+        req = {query: 'a'};
         res = {
         status: function(responseStatus) {
             expect(responseStatus).toBe(200);
